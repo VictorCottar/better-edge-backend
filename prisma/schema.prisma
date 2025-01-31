@@ -8,17 +8,17 @@ generator client {
 }
 
 model Cliente {
-  id       Int     @id @default(autoincrement())
-  nome     String
-  email    String  @unique
-  status   Boolean
-  ativos   Ativos[]
+  id     Int      @id @default(autoincrement())
+  nome   String
+  email  String   @unique
+  status Boolean
+  ativos Ativos[]
 }
 
 model Ativos {
-  id          Int     @id @default(autoincrement())
-  nome        String
-  valorAtual  Float
-  clienteId   Int
-  cliente     Cliente @relation(fields: [clienteId], references: [id])
+  id         Int      @id @default(autoincrement())
+  nome       String
+  valorAtual Float
+  clienteId  Int?
+  cliente    Cliente? @relation(fields: [clienteId], references: [id])
 }
